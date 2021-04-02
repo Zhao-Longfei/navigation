@@ -2,6 +2,7 @@ import random
 import cv2
 import numpy as np
 from PIL import Image,ImageFont,ImageDraw
+import os
 
 
 def Drawing_random_Lines(image):
@@ -25,10 +26,10 @@ def Drawing_random_Lines(image):
     image1=image
     cv2.line(image1,(int(a1), int(b1)), (int(a2), int(b2)), (0, 225, 0), 1, cv2.LINE_AA)
     return image1
-
-data_directory = 'plan\\'
-#image=cv2.imread(data_directory+'001'+'.png',1)
-image=cv2.imread('plan\\002.jpg',1)
+relative_path = "plan/002.jpg"
+script_path = os.path.dirname(__file__)
+#path = 'plan/002.jpg'
+image=cv2.imread(os.path.join(script_path, relative_path),1)
 image1=Drawing_random_Lines(image)
 
 
